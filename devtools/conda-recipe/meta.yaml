@@ -14,14 +14,11 @@ requirements:
   run:
     - python
     - six
-    - pyyaml
+    - msmbuilder
     - numpy
     - scipy
-    - scikit-learn
-    - sqlalchemy
 
 test:
-
   requires:
     - nose
     - nose-timer
@@ -29,10 +26,9 @@ test:
     - mdtraj
 
   commands:
-    - osprey --help
-    - nosetests -v osprey --with-timer --with-coverage  --cover-package=osprey
+    - nosetests -v msmb_data --with-timer
 
 about:
   home: https://github.com/msmbuilder/msmb_data
   license: Apache Software License
-  summary: 'Run distributed cross-validation'
+  summary: 'Testing data for MSMBuilder'
