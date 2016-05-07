@@ -1,0 +1,38 @@
+package:
+  name: msmb_data
+  version: "1.0.0.dev0"
+
+source:
+  path: ../../
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cython
+
+  run:
+    - python
+    - six
+    - pyyaml
+    - numpy
+    - scipy
+    - scikit-learn
+    - sqlalchemy
+
+test:
+
+  requires:
+    - nose
+    - nose-timer
+    - msmbuilder
+    - mdtraj
+
+  commands:
+    - osprey --help
+    - nosetests -v osprey --with-timer --with-coverage  --cover-package=osprey
+
+about:
+  home: https://github.com/msmbuilder/msmb_data
+  license: Apache Software License
+  summary: 'Run distributed cross-validation'
