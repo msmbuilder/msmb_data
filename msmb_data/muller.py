@@ -109,7 +109,7 @@ class MullerPotential(_NWell):
         ax.contourf(xx, yy, V.clip(max=200), 40, **kwargs)
 
 
-def load_muller(data_home=None, random_state=None):
-    return MullerPotential(data_home, random_state).get()
+def load_muller(random_state=None):
+    return MullerPotential(random_state).get()
 
 load_muller.__doc__ = MullerPotential.__doc__

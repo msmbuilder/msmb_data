@@ -25,11 +25,12 @@ test:
     - nose-timer
     - msmbuilder
     - mdtraj
-
+  imports:
+    - msmb_data
   commands:
-    - nosetests -v msmb_data --with-timer
+    - nosetests msmb_data -v --with-timer
 
 about:
-  home: https://github.com/msmbuilder/msmb_data
+  home: https://github.com/msmbuilder
   license: Apache Software License
   summary: 'Testing data for MSMBuilder'

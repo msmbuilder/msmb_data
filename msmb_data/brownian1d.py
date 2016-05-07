@@ -42,9 +42,6 @@ class _NWell(Dataset):
     """Base class for brownian dynamics on [double, quad] well potentials
     Parameters
     ----------
-    data_home : optional, default: None
-        Specify another cache folder for the datasets. By default
-        all MSMBuilder data is stored in '~/msmbuilder_data' subfolders.
     random_state : {int, None}, default: None
         Seed the psuedorandom number generator to generate trajectories. If
         seed is None, the global numpy PRNG is used. If random_state is an
@@ -57,8 +54,8 @@ class _NWell(Dataset):
     target_name = ""  # define in subclass
     version = 1       # override in subclass if parameters are updated
 
-    def __init__(self, data_home=None, random_state=None):
-        self.data_home = get_data_home(data_home)
+    def __init__(self, random_state=None):
+        self.data_home = get_data_home()
         self.data_dir = join(self.data_home, self.target_name)
         self.random_state = random_state
         self.cache_path = None
@@ -75,8 +72,8 @@ class _NWell(Dataset):
             if not isinstance(self.random_state, numbers.Integral):
                 raise TypeError('random_state must be an int')
             path = join(self.data_dir,
-                        'version-%d_random-state-%d.pkl' % (
-                        self.version, self.random_state))
+                        'version-%d_random-state-%d.pkl' % (self.version,
+                                                            self.random_state))
             self.cache_path = path
             if exists(path):
                 return verboseload(path)
@@ -105,9 +102,6 @@ class DoubleWell(_NWell):
     r"""Brownian dynamics on a 1D double well potential
     Parameters
     ----------
-    data_home : optional, default: None
-        Specify another cache folder for the datasets. By default
-        all MSMBuilder data is stored in '~/msmbuilder_data' subfolders.
     random_state : {int, None}, default: None
         Seed the psuedorandom number generator to generate trajectories. If
         seed is None, the global numpy PRNG is used. If random_state is an
@@ -136,8 +130,8 @@ class DoubleWell(_NWell):
         return 1 + np.cos(2*x)
 
 
-def load_doublewell(data_home=None, random_state=None):
-    return DoubleWell(data_home, random_state).get()
+def load_doublewell(random_state=None):
+    return DoubleWell(random_state).get()
 
 
 load_doublewell.__doc__ = DoubleWell.__doc__
@@ -147,9 +141,6 @@ class QuadWell(_NWell):
     r"""Brownian dynamics on a 1D four well potential
     Parameters
     ----------
-    data_home : optional, default: None
-        Specify another cache folder for the datasets. By default
-        all MSMBuilder data is stored in '~/msmbuilder_data' subfolders.
     random_state : {int, None}, default: None
         Seed the psuedorandom number generator to generate trajectories. If
         seed is None, the global numpy PRNG is used. If random_state is an
@@ -179,8 +170,8 @@ class QuadWell(_NWell):
                   0.5*np.exp(-40*(x+0.5)**2))
 
 
-def load_quadwell(data_home=None, random_state=None):
-    return QuadWell(data_home, random_state).get()
+def load_quadwell(random_state=None):
+    return QuadWell(random_state).get()
 
 
 load_quadwell.__doc__ = QuadWell.__doc__
