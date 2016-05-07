@@ -1,0 +1,34 @@
+package:
+  name: msmb_data
+  version: "1.0.0.dev0"
+
+source:
+  path: ../../
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cython
+
+  run:
+    - python
+    - six
+    - msmbuilder
+    - numpy
+    - scipy
+
+test:
+  requires:
+    - nose
+    - nose-timer
+    - msmbuilder
+    - mdtraj
+
+  commands:
+    - nosetests -v msmb_data --with-timer
+
+about:
+  home: https://github.com/msmbuilder/msmb_data
+  license: Apache Software License
+  summary: 'Testing data for MSMBuilder'
