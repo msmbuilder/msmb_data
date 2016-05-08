@@ -1,6 +1,8 @@
 from __future__ import print_function, absolute_import, division
 
-from setuptools import setup, find_packages
+import numpy as np
+from os.path import join as pjoin
+from setuptools import setup, find_packages, Extension
 
 VERSION = '1.0.0.dev0'
 ISRELEASED = False
@@ -21,6 +23,13 @@ Operating System :: MacOS
 Operating System :: Microsoft :: Windows
 Topic :: Scientific/Engineering
 Topic :: Scientific/Engineering :: Information Analysis"""
+
+extensions = []
+extensions.append(
+    Extension('msmb_data._muller',
+              sources=[pjoin('msmb_data', '_muller.pyx')],
+              include_dirs=[np.get_include()]))
+
 setup(
     name='msmb_data',
     author='Carlos Xavier Hernandez',
@@ -33,4 +42,5 @@ setup(
     packages=find_packages(),
     zip_safe=False,
     package_data={'msmb_data': ['data/*/*.*']},
+    ext_modules=extensions
 )
