@@ -1,6 +1,6 @@
 package:
-  name: msmb_data
-  version: "1.0.0.dev0"
+  name: msmb_data-dev
+  version: "0.0.0"
 
 source:
   path: ../../
@@ -10,13 +10,12 @@ requirements:
     - python
     - setuptools
     - cython
-    - numpy
+    - numpy x.x
 
   run:
     - python
     - six
-    - msmbuilder
-    - numpy
+    - numpy x.x
     - scipy
 
 test:
@@ -32,5 +31,5 @@ test:
 
 about:
   home: https://github.com/msmbuilder
-  license: Apache Software License
+  license: LGPLv2.1+
   summary: 'Testing data for MSMBuilder'
