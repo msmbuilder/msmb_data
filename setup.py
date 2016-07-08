@@ -12,7 +12,7 @@ __version__ = VERSION
 classifiers = """\
 Development Status :: 3 - Alpha
 Intended Audience :: Science/Research
-License :: OSI Approved :: Apache Software License
+License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
 Programming Language :: Python
 Programming Language :: Python :: 2.7
 Programming Language :: Python :: 3
@@ -37,7 +37,6 @@ setup(
     url='https://github.com/msmbuilder/msmb_data',
     classifiers=[e.strip() for e in classifiers.splitlines()],
     platforms=["Windows", "Linux", "Mac OS-X", "Unix"],
-    license='Apache Software License',
     version=VERSION,
     packages=find_packages(),
     zip_safe=False,

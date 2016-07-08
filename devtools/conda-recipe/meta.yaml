@@ -31,5 +31,5 @@ test:
 
 about:
   home: https://github.com/msmbuilder
-  license: Apache Software License
+  license: LGPLv2.1+
   summary: 'Testing data for MSMBuilder'
