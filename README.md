@@ -1,6 +1,6 @@
 # msmb_data
 
-Testing data for MSMBuilder.
+Testing and example data for MSMBuilder.
 
 The python code in this package is derived from code included in msmbuilder
 and is licensed under LGPLv2.1+.
