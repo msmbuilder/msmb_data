@@ -4,7 +4,7 @@ import numpy as np
 from os.path import join as pjoin
 from setuptools import setup, find_packages, Extension
 
-VERSION = '1.0.0.dev0'
+VERSION = '1.1.0.dev0'
 ISRELEASED = False
 __version__ = VERSION
 
