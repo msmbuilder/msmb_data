@@ -14,16 +14,17 @@ from os import makedirs
 from os.path import join
 from os.path import exists
 import numpy as np
-from sklearn.utils import check_random_state
-from msmbuilder.utils import verboseload, verbosedump
-from msmbuilder.msm import _solve_msm_eigensystem
+
+from .utils import check_random_state
+from .utils import verboseload, verbosedump
+from .utils import _solve_msm_eigensystem
 
 from .base import Bunch, Dataset
 from .base import get_data_home
 
 # -----------------------------------------------------------------------------
 # Globals
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 # DO NOT CHANGE THESE CONSTANTS WITHOUT UPDATING THE
 # "DOUBLEWELL_DESCRIPTION" VARIABLE
@@ -34,9 +35,10 @@ DT_SQRT_2D = DT * np.sqrt(2 * DIFFUSION_CONST)
 __all__ = ['load_doublewell', 'load_quadwell',
            'doublewell_eigs', 'quadwell_eigs']
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # User functions
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
+
 
 class _NWell(Dataset):
     """Base class for brownian dynamics on [double, quad] well potentials
@@ -192,13 +194,13 @@ def quadwell_eigs(n_grid, lag_time=1):
     return _brownian_eigs(n_grid, lag_time, QUADWELL_GRAD_POTENTIAL,
                           -1.2, 1.2, reflect_bc=False)
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # Internal functions
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 
 DOUBLEWELL_GRAD_POTENTIAL = lambda x: -2 * np.sin(2 * x)
 QUADWELL_GRAD_POTENTIAL = lambda x: 4 * (
-    8 * x ** 7 - 128 * x * np.exp(-80 * x ** 2) - \
+    8 * x ** 7 - 128 * x * np.exp(-80 * x ** 2) -
     32 * (x - 0.5) * np.exp(-80 * (x - 0.5) ** 2) - 40 * (x + 0.5) * np.exp(
         -40 * (x + 0.5) ** 2))
 
