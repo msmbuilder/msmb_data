@@ -15,7 +15,6 @@ requirements:
   run:
     - python
     - six
-    - msmbuilder
     - numpy
     - scipy
 
@@ -23,7 +22,6 @@ test:
   requires:
     - nose
     - nose-timer
-    - msmbuilder
     - mdtraj
   imports:
     - msmb_data
