@@ -1,6 +1,6 @@
 package:
-  name: msmb_data
-  version: "1.0.0.dev0"
+  name: msmb_data-dev
+  version: "0.0.0"
 
 source:
   path: ../../
@@ -15,7 +15,6 @@ requirements:
   run:
     - python
     - six
-    - msmbuilder
     - numpy
     - scipy
 
