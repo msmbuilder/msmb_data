@@ -1,0 +1,15 @@
+environment:
+
+  matrix:
+    - PYDIR: "C:\\Miniconda35"
+    - PYDIR: "C:\\Miniconda35-x64"
+
+install:
+  - set PATH=%PYDIR%;%PYDIR%\\Scripts;%PATH%
+  - conda update -yq --all
+  - conda install -yq conda-build jinja2
+
+build: false
+
+test_script:
+  - conda build -q devtools\conda-recipe
