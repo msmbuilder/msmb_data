@@ -14,8 +14,14 @@ def get_trajs(dataname):
 
 
 def get_top(dataname):
-    return ("{home}/{dataname}/{dataname}.pdb"
-            .format(home=DIRNAME, dataname=dataname))
+    topname = {
+        'met_enkephalin': '1plx',
+        'alanine_dipeptide': 'ala2',
+        'fs_peptide': 'fs-peptide',
+
+    }[dataname]
+    return ("{home}/{dataname}/{topname}.pdb"
+            .format(home=DIRNAME, dataname=dataname, topname=topname))
 
 
 def get(dataname):
