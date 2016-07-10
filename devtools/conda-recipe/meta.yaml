@@ -5,29 +5,10 @@ package:
 source:
   path: ../../
 
-requirements:
-  build:
-    - python
-    - setuptools
-    - cython
-    - numpy x.x
-
-  run:
-    - python
-    - six
-    - numpy x.x
-    - scipy
-
 test:
   requires:
-    - nose
-    - nose-timer
-    - msmbuilder
+    - python
     - mdtraj
-  imports:
-    - msmb_data
-  commands:
-    - nosetests msmb_data -v --with-timer
 
 about:
   home: https://github.com/msmbuilder
